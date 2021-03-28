@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TikTakToe 
 {
     public class Board
@@ -24,10 +26,17 @@ namespace TikTakToe
                 this.boardArray[i].Position = positions[i];
             }
         }
-        public void updateGameBoard(string playerChoice){
+        public void playerMakeMove(string playerChoice){
             foreach(Square square in this.BoardArray){
                 if(square.Position.Equals(playerChoice)){
                     square.State = 'X';
+                }
+            }
+        }
+        public void computerMakeMove(string computerChoice){
+                foreach(Square square in this.BoardArray){
+                if(square.Position.Equals(computerChoice)){
+                    square.State = 'O';
                 }
             }
         }
@@ -40,5 +49,17 @@ namespace TikTakToe
             System.Console.WriteLine("__________");
             System.Console.WriteLine($"{this.boardArray[6].printState()} | {this.boardArray[7].printState()} | {this.boardArray[8].printState()}");
         }
+//need to keep gameboard state
+        public Square[] getBlankSquares() {
+            List<Square> blankSquares = new List<Square>();
+            foreach(Square square in this.BoardArray) {
+                if(square.State.Equals('b')){
+                    blankSquares.Add(square);
+                }
+            }
+            Square[] blankSquareArray = blankSquares.ToArray();
+            return blankSquareArray;
+        }
     }
 }
+    

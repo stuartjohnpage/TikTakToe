@@ -1,23 +1,23 @@
-namespace TikTakToe {
+namespace TikTakToe
+{
     public class Square
     {
-        private char state;
-        private string position;
-
         public char State
-        { get; set;}
+        { get; set; }
         public string Position
-        { get; set;}
+        { get; set; }
         public Square()
         {
             State = 'b';
-            Position = position;
         }
         public char printState()
         {
-            if(this.State == 'b') {
+            if (this.State == 'b')
+            {
                 return '_';
-            } else {
+            }
+            else
+            {
                 return this.State;
             }
         }

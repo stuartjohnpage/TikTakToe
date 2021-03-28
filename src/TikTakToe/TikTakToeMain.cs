@@ -6,12 +6,19 @@ namespace TikTakToe
     {
         static void Main(string[] args)
         {
-
             var newGame = new Game();
+            bool gameWon = false;
+            while(!gameWon)
+            {
+            //start game loop
             newGame.GameBoard.printBoard();
-            newGame.playerTakeTurn();
+            newGame.displayFreeSpaces();
+            newGame.getPlayerInput();
             newGame.GameBoard.printBoard();
-
+            newGame.computerTakeTurn();
+            newGame.isGameWon();
+            //end game loop
             }
         }
     }
+}

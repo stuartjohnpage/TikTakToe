@@ -1,0 +1,7 @@
+Start new game
+Get new board
+Ask player to make a move
+Update the game board with the new move
+Get blank squares
+Computer takes move on blank squares
+Ask player to make a move

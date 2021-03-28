@@ -1,3 +1,5 @@
+using System;
+
 namespace TikTakToe
 {
     public class Game
@@ -6,7 +8,7 @@ namespace TikTakToe
 
         public Board GameBoard
         {
-            get;set;
+            get; set;
         }
 
         public Game()
@@ -14,74 +16,87 @@ namespace TikTakToe
             GameBoard = gameBoard;
         }
 
-    public void playerTakeTurn()
-    {
-        System.Console.WriteLine("It's your move!");
-        getFreeSpaces();
-        bool moveNotPicked = true;
-        while(moveNotPicked) {
-            System.Console.WriteLine("Please enter your move choice:");
-            string spaceChoiceString = System.Console.ReadLine();
-            switch(spaceChoiceString){
-                case "Top Left":
-                    GameBoard.updateGameBoard("Top Left");
-                    moveNotPicked = false;
-                    break;
-                case "Top Middle":
-                    GameBoard.updateGameBoard("Top Middle");
-                    moveNotPicked = false;
-                    break;
-                case "Top Right":
-                    GameBoard.updateGameBoard("Top Right");
-                    moveNotPicked = false;
-                    break;
-                case "Middle Left":
-                    GameBoard.updateGameBoard("Middle Left");
-                    moveNotPicked = false;
-                    break;
-                case "Middle Middle":
-                    GameBoard.updateGameBoard("Middle Middle");
-                    moveNotPicked = false;
-                    break;
-                case "Middle Right":
-                    GameBoard.updateGameBoard("Middle Right");
-                    moveNotPicked = false;
-                    break;
-                case "Bottom Left":
-                    GameBoard.updateGameBoard("Bottom Left");
-                    moveNotPicked = false;
-                    break;
-                case "Bottom Middle":
-                    GameBoard.updateGameBoard("Bottom Middle");
-                    moveNotPicked = false;
-                    break;
-                case "Bottom Right":
-                    GameBoard.updateGameBoard("Bottom Right");
-                    moveNotPicked = false;
-                    break;
-                default:
-                System.Console.WriteLine("Please enter a valid choice: ");
-                System.Console.WriteLine();
-                    break;
+        public void getPlayerInput()
+        {
+            //you need a display valid choices method
+            System.Console.WriteLine("It's your move!");
+            bool moveNotPicked = true;
+            while (moveNotPicked)
+            {
+                System.Console.WriteLine("Please enter your move choice:");
+                string spaceChoiceString = System.Console.ReadLine();
+                switch (spaceChoiceString)
+                {
+                    case "Top Left":
+                        GameBoard.playerMakeMove("Top Left");
+                        moveNotPicked = false;
+                        break;
+                    case "Top Middle":
+                        GameBoard.playerMakeMove("Top Middle");
+                        moveNotPicked = false;
+                        break;
+                    case "Top Right":
+                        GameBoard.playerMakeMove("Top Right");
+                        moveNotPicked = false;
+                        break;
+                    case "Middle Left":
+                        GameBoard.playerMakeMove("Middle Left");
+                        moveNotPicked = false;
+                        break;
+                    case "Middle Middle":
+                        GameBoard.playerMakeMove("Middle Middle");
+                        moveNotPicked = false;
+                        break;
+                    case "Middle Right":
+                        GameBoard.playerMakeMove("Middle Right");
+                        moveNotPicked = false;
+                        break;
+                    case "Bottom Left":
+                        GameBoard.playerMakeMove("Bottom Left");
+                        moveNotPicked = false;
+                        break;
+                    case "Bottom Middle":
+                        GameBoard.playerMakeMove("Bottom Middle");
+                        moveNotPicked = false;
+                        break;
+                    case "Bottom Right":
+                        GameBoard.playerMakeMove("Bottom Right");
+                        moveNotPicked = false;
+                        break;
+                    default:
+                        System.Console.WriteLine("Please enter a valid choice: ");
+                        System.Console.WriteLine();
+                        break;
+                }
             }
+
         }
 
-    }
+        internal void isGameWon()
+        {
+            throw new NotImplementedException();
+        }
 
-    public void computerTakeTurn()
-    {
+        public void computerTakeTurn()
+        {
+            System.Console.WriteLine("It's the computers turn...");
+            System.Console.WriteLine("Computer is thinking...");
+            var rand = new Random();
+            var possibleChoices = this.GameBoard.getBlankSquares();
+            int randomChoiceIndex = rand.Next(possibleChoices.Length);
+            String squareChosen = possibleChoices[randomChoiceIndex].Position;
+            this.GameBoard.computerMakeMove(squareChosen);
+        }
 
-    }
-
-    public void getFreeSpaces()
-    {
-        System.Console.WriteLine("Spaces available for moves: ");
-        foreach(Square square in this.GameBoard.BoardArray){
-            if(square.State == 'b'){
+        public void displayFreeSpaces()
+        {
+            System.Console.WriteLine("Spaces available for moves: ");
+            foreach (Square square in this.GameBoard.getBlankSquares())
+            {
                 System.Console.WriteLine($"{square.Position} is a free space!");
+
             }
         }
-    }
     }
 
 }
