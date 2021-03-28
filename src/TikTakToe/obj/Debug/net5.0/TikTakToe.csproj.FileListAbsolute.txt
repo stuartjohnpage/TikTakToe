@@ -1,0 +1,16 @@
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.csprojAssemblyReference.cache
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.AssemblyInfoInputs.cache
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.AssemblyInfo.cs
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.csproj.CoreCompileInputs.cache
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\TikTakToe.exe
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\TikTakToe.deps.json
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\TikTakToe.runtimeconfig.json
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\TikTakToe.runtimeconfig.dev.json
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\TikTakToe.dll
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\ref\TikTakToe.dll
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\bin\Debug\net5.0\TikTakToe.pdb
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.dll
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\ref\TikTakToe.dll
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.pdb
+C:\Users\stuar\OneDrive\Code\CSharp\tictaktoe\src\TikTakToe\obj\Debug\net5.0\TikTakToe.genruntimeconfig.cache
