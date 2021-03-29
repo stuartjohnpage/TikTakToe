@@ -147,12 +147,14 @@ namespace TikTakToe
 
         public void displayFreeSpaces()
         {
+            System.Console.WriteLine("------------------------------");
             System.Console.WriteLine("Spaces available for moves: ");
             foreach (Square square in this.GameBoard.getBlankSquares())
             {
                 System.Console.WriteLine($"{square.Position} is a free space!");
 
             }
+            System.Console.WriteLine("------------------------------");
         }
     }
 
