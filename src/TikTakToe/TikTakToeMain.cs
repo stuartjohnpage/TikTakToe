@@ -11,12 +11,15 @@ namespace TikTakToe
             while(!gameWon)
             {
             //start game loop
-            newGame.GameBoard.printBoard();
-            newGame.displayFreeSpaces();
-            newGame.getPlayerInput();
-            newGame.GameBoard.printBoard();
-            newGame.computerTakeTurn();
-            newGame.isGameWon();
+                newGame.GameBoard.printBoard();
+                newGame.displayFreeSpaces();
+                newGame.playerTakeTurn();
+                newGame.GameBoard.printBoard();
+                if(newGame.isGameWon('X')){
+                    break;
+                }
+                newGame.computerTakeTurn();
+                gameWon = newGame.isGameWon('O');
             //end game loop
             }
         }

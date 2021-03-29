@@ -4,16 +4,13 @@ namespace TikTakToe
 {
     public class Board
     {
-        private Square[] boardArray = new Square[9];
-
         public Square[] BoardArray
         {get;set;}
-        
         
         public Board()
 
         {
-            BoardArray = boardArray;
+            this.BoardArray = new Square[9];
 
             string[] positions = new string[]{
                 "Top Left","Top Middle","Top Right",
@@ -22,19 +19,19 @@ namespace TikTakToe
             };
 
             for(int i = 0; i < 9; i++){
-                this.boardArray[i] = new Square();
-                this.boardArray[i].Position = positions[i];
+                BoardArray[i] = new Square();
+                BoardArray[i].Position = positions[i];
             }
         }
         public void playerMakeMove(string playerChoice){
-            foreach(Square square in this.BoardArray){
+            foreach(Square square in BoardArray){
                 if(square.Position.Equals(playerChoice)){
                     square.State = 'X';
                 }
             }
         }
         public void computerMakeMove(string computerChoice){
-                foreach(Square square in this.BoardArray){
+                foreach(Square square in BoardArray){
                 if(square.Position.Equals(computerChoice)){
                     square.State = 'O';
                 }
@@ -43,16 +40,16 @@ namespace TikTakToe
 
         public void printBoard()
         {
-            System.Console.WriteLine($"{this.boardArray[0].printState()} | {this.boardArray[1].printState()} | {this.boardArray[2].printState()}");
+            System.Console.WriteLine($"{BoardArray[0].printState()} | {BoardArray[1].printState()} | {BoardArray[2].printState()}");
             System.Console.WriteLine("__________");
-            System.Console.WriteLine($"{this.boardArray[3].printState()} | {this.boardArray[4].printState()} | {this.boardArray[5].printState()}");
+            System.Console.WriteLine($"{BoardArray[3].printState()} | {BoardArray[4].printState()} | {BoardArray[5].printState()}");
             System.Console.WriteLine("__________");
-            System.Console.WriteLine($"{this.boardArray[6].printState()} | {this.boardArray[7].printState()} | {this.boardArray[8].printState()}");
+            System.Console.WriteLine($"{BoardArray[6].printState()} | {BoardArray[7].printState()} | {BoardArray[8].printState()}");
         }
 //need to keep gameboard state
         public Square[] getBlankSquares() {
             List<Square> blankSquares = new List<Square>();
-            foreach(Square square in this.BoardArray) {
+            foreach(Square square in BoardArray) {
                 if(square.State.Equals('b')){
                     blankSquares.Add(square);
                 }

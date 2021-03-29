@@ -4,19 +4,22 @@ namespace TikTakToe
 {
     public class Game
     {
-        private Board gameBoard = new Board();
-
         public Board GameBoard
         {
             get; set;
         }
+        public int TurnCount
+        {
+            get;set;
+        }
 
         public Game()
         {
-            GameBoard = gameBoard;
+            this.GameBoard = new Board();
+            this.TurnCount = 0;
         }
 
-        public void getPlayerInput()
+        public void playerTakeTurn()
         {
             //you need a display valid choices method
             System.Console.WriteLine("It's your move!");
@@ -69,12 +72,53 @@ namespace TikTakToe
                         break;
                 }
             }
-
+            this.TurnCount += 1;
         }
 
-        internal void isGameWon()
+        public bool isGameWon(char symbol)
         {
-            throw new NotImplementedException();
+            if(this.TurnCount >= 5){
+                
+                for(int i = 0; i<3; i++) {
+                    //across ways win
+                    if(this.GameBoard.BoardArray[i].State.Equals(symbol) && this.GameBoard.BoardArray[i+1].State.Equals(symbol) && this.GameBoard.BoardArray[i+2].State.Equals(symbol) ){
+                        if(symbol.Equals('X')) {
+                            System.Console.WriteLine("You win! Congratulations! Exiting...");
+                        } else {
+                            System.Console.WriteLine("You lose :( Exiting...");
+                        }
+                        return true;
+                }   //down ways win
+                    else if(this.GameBoard.BoardArray[i].State.Equals(symbol) && this.GameBoard.BoardArray[i+3].State.Equals(symbol) && this.GameBoard.BoardArray[i+6].State.Equals(symbol) ){
+                        if(symbol.Equals('X')) {
+                            System.Console.WriteLine("You win! Congratulations! Exiting...");
+                        } else {
+                            System.Console.WriteLine("You lose :( Exiting...");
+                        }
+                        return true;
+                }   
+                //diagonals win
+                }
+                if(this.GameBoard.BoardArray[0].State.Equals(symbol) && this.GameBoard.BoardArray[4].State.Equals(symbol) && this.GameBoard.BoardArray[8].State.Equals(symbol) ){
+                    System.Console.WriteLine("You won! Congratulations!");
+                    if(symbol.Equals('X')) {
+                        System.Console.WriteLine("You win! Congratulations! Exiting...");
+                    } else {
+                        System.Console.WriteLine("You lose :( Exiting...");
+                    }
+                    return true;
+                }else if(this.GameBoard.BoardArray[2].State.Equals(symbol) && this.GameBoard.BoardArray[4].State.Equals(symbol) && this.GameBoard.BoardArray[6].State.Equals(symbol) ){
+                    System.Console.WriteLine("You won! Congratulations!");
+                    if(symbol.Equals('X')) {
+                        System.Console.WriteLine("You win! Congratulations! Exiting...");
+                    } else {
+                        System.Console.WriteLine("You lose :( Exiting...");
+                    }
+                    return true;
+                }
+                
+            }
+            return false;
         }
 
         public void computerTakeTurn()
@@ -86,6 +130,7 @@ namespace TikTakToe
             int randomChoiceIndex = rand.Next(possibleChoices.Length);
             String squareChosen = possibleChoices[randomChoiceIndex].Position;
             this.GameBoard.computerMakeMove(squareChosen);
+            this.TurnCount += 1;
         }
 
         public void displayFreeSpaces()
