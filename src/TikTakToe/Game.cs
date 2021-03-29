@@ -24,13 +24,25 @@ namespace TikTakToe
             //you need a display valid choices method
             System.Console.WriteLine("It's your move!");
             bool moveNotPicked = true;
+            bool validMoveSelected = false;
             while (moveNotPicked)
             {
                 System.Console.WriteLine("Please enter your move choice:");
                 string spaceChoiceString = System.Console.ReadLine();
+                foreach(Square square in this.GameBoard.getBlankSquares())
+                {
+                    if(spaceChoiceString.Equals(square.Position)){
+                        validMoveSelected = true;
+                        break;
+                    }
+                }
+                if(!validMoveSelected){
+                    continue;
+                }
                 switch (spaceChoiceString)
                 {
                     case "Top Left":
+
                         GameBoard.playerMakeMove("Top Left");
                         moveNotPicked = false;
                         break;
@@ -81,7 +93,7 @@ namespace TikTakToe
                 
                 for(int i = 0; i<3; i++) {
                     //across ways win
-                    if(this.GameBoard.BoardArray[i].State.Equals(symbol) && this.GameBoard.BoardArray[i+1].State.Equals(symbol) && this.GameBoard.BoardArray[i+2].State.Equals(symbol) ){
+                    if(this.GameBoard.BoardArray[i*3].State.Equals(symbol) && this.GameBoard.BoardArray[(i*3)+1].State.Equals(symbol) && this.GameBoard.BoardArray[(i*3)+2].State.Equals(symbol) ){
                         if(symbol.Equals('X')) {
                             System.Console.WriteLine("You win! Congratulations! Exiting...");
                         } else {
